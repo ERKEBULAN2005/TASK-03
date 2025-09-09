@@ -1,0 +1,130 @@
+Дополнительные задания по условным конструкциям.
+
+1) Напишите программу, которая предлагает ввести два целых числа, а затем использует конструкцию if-else для вывода сообщения о том, равны ли два числа. 
+(Реализовать программу через функцию) 
+
+using System;
+
+class Program
+{
+    static void CheckNumbers(int a, int b)
+    {
+        if (a == b)
+        {
+            Console.WriteLine("Числа равны!");
+        }
+        else
+        {
+            Console.WriteLine("Числа разные!");
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        Console.Write("Введите первое число: ");
+        int num1 = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите второе число: ");
+        int num2 = int.Parse(Console.ReadLine());
+
+        CheckNumbers(num1, num2);
+    }
+}
+
+2) Напишите программу, которая предлагает ввести два целых числа и выясняет, делится ли первое число на второе без остатка (кратно ли второе число). Предусмотрите вариант, когда в качестве второго числа можно ввести 0 (на ноль же делить нельзя). В этом случае программа ничего вычисляет, а просто завершает выполнение. Выведите об этом сообщение.
+(Реализовать программу через функцию)
+
+using System;
+
+class Program
+{
+    static void CheckDivision(int num1, int num2)
+    {
+        if (num2 == 0)
+        {
+            Console.WriteLine("На ноль делить нельзя!");
+            return;
+        }
+
+        if (num1 % num2 == 0)
+        {
+            Console.WriteLine($"{num1} делится на {num2} без остатка.");
+        }
+        else
+        {
+            Console.WriteLine($"{num1} не делится на {num2} без остатка.");
+        }
+    }
+
+    static void Main()
+    {
+        Console.Write("Введите первое число: ");
+        int a = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите второе число: ");
+        int b = int.Parse(Console.ReadLine());
+
+        CheckDivision(a, b);
+    }
+}
+
+3) Напишите программу, в которую пользователь вводит число от 1 до 100. Используйте вложенный оператор if, чтобы сначала убедиться, что число находится в пределах этого диапазона. А затем при выполнении этого условия определите, является ли введенное число больше, меньше или равным 50. И выведите результат на консоль.
+(Реализовать программу через функцию)
+
+using System;
+
+class Program
+{
+    static void CheckNumber(int number)
+    {
+        if (number >= 1 && number <= 100)
+        {
+            if (number > 50)
+                Console.WriteLine("Число больше 50");
+            else if (number < 50)
+                Console.WriteLine("Число меньше 50");
+            else
+                Console.WriteLine("Число равно 50");
+        }
+        else
+        {
+            Console.WriteLine("Число вне диапазона от 1 до 100!");
+        }
+    }
+
+    static void Main()
+    {
+        Console.Write("Введите число от 1 до 100: ");
+        int num = int.Parse(Console.ReadLine());
+
+        CheckNumber(num);
+    }
+}
+
+4) Напишите программу, в которой вводятся два числа, и программа проверят, больше ли первое число второму или меньше или они равны. Для проверки используйте тернарный оператор.
+(Реализовать программу через функцию)
+
+using System;
+
+class Program
+{
+    static void CompareNumbers(int a, int b)
+    {
+        string result = (a > b) ? "Первое число больше второго"
+                     : (a < b) ? "Первое число меньше второго"
+                     : "Числа равны";
+
+        Console.WriteLine(result);
+    }
+
+    static void Main()
+    {
+        Console.Write("Введите первое число: ");
+        int num1 = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите второе число: ");
+        int num2 = int.Parse(Console.ReadLine());
+
+        CompareNumbers(num1, num2);
+    }
+}
